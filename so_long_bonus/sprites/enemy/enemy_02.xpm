@@ -1,0 +1,28 @@
+/* XPM */
+static char *enemy_02[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c #33703B",
+"X c #37773F",
+"o c #3E8948",
+"O c #62B76D",
+"+ c None",
+/* pixels */
+"++++++++++++++++",
+"++++++++++++++++",
+"++++++++++++++++",
+"+++++      +++++",
+"+++  .oooo.  +++",
+"++ ..oooooo.. ++",
+"+ .oooooooooo. +",
+" .ooOOoooooooo. ",
+" ooOOoooooo  oo ",
+" oooXX  XXX  oo ",
+" oXXXX  XXXXXXo ",
+" .XXXXXXXXXXXX. ",
+"+ ..XXXXXXXX.. +",
+"++  .XXXXXX.  ++",
+"++++        ++++",
+"++++++++++++++++"
+};

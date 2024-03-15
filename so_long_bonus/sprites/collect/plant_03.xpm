@@ -1,0 +1,27 @@
+/* XPM */
+static char *plant_04[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c #954D08",
+". c #CF7F11",
+"X c #EBB720",
+"o c #F3D47A",
+"O c None",
+/* pixels */
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOO    OOOOOO",
+"OOOOO oXXX OOOOO",
+"OOOO oX..XX OOOO",
+"OOOO X.XX.X OOOO",
+"OOOO X.XX.X OOOO",
+"OOOO XX..XX OOOO",
+"OOOOO XXXX OOOOO",
+"OOOOOO    OOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO"
+};
