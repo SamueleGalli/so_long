@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_winable.c                                       :+:      :+:    :+:   */
+/*   ft_winable_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:26:51 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/26 10:26:53 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:56:22 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long_bonus.h"
 
-// int	border(int x, int y, t_tile **g, int con)
-// {
-// 	int x1;
-// 	int x2;
-// }
+void	mover(int x, int y, t_tile **g);
+
+void	radar(int x, int y, t_tile **g)
+{
+	if (g[y][x + 1].type == EMPTY || g[y][x + 1].type == EXIT \
+	|| g[y][x + 1].type == COLLECTABLE || g[y][x + 1].type == ENEMY \
+	|| g[y][x + 1].type == FOLLOWER)
+	{
+		g[y][x + 1].type = WALL;
+		mover(x + 1, y, g);
+	}
+	if (g[y][x - 1].type == EMPTY || g[y][x - 1].type == EXIT \
+	|| g[y][x - 1].type == COLLECTABLE || g[y][x - 1].type == ENEMY \
+	|| g[y][x - 1].type == FOLLOWER)
+	{
+		g[y][x - 1].type = WALL;
+		mover(x - 1, y, g);
+	}
+}
 
 void	mover(int x, int y, t_tile **g)
 {
@@ -34,24 +48,7 @@ void	mover(int x, int y, t_tile **g)
 		g[y - 1][x].type = WALL;
 		mover(x, y - 1, g);
 	}
-}
-
-void	radar(int x, int y, t_tile **g)
-{
-	if (g[y][x + 1].type == EMPTY || g[y][x + 1].type == EXIT \
-	|| g[y][x + 1].type == COLLECTABLE || g[y][x + 1].type == ENEMY \
-	|| g[y][x + 1].type == FOLLOWER)
-	{
-		g[y][x + 1].type = WALL;
-		mover(x + 1, y, g);
-	}
-	if (g[y][x - 1].type == EMPTY || g[y][x - 1].type == EXIT \
-	|| g[y][x - 1].type == COLLECTABLE || g[y][x - 1].type == ENEMY \
-	|| g[y][x - 1].type == FOLLOWER)
-	{		
-		g[y][x - 1].type = WALL;
-		mover(x - 1, y, g);
-	}
+	radar(x, y, g);
 }
 
 t_bool	ft_while(int x, int y, t_tile **g)
@@ -88,7 +85,7 @@ int	ft_condition(int x, int y, t_tile **g)
 		}
 		y++;
 	}
-	return (TRUE);
+	return (ft_while(x, y, g));
 }
 
 t_bool	ft_winnable(t_tile **backup)

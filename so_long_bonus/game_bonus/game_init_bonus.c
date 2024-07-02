@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_init.c                                        :+:      :+:    :+:   */
+/*   game_init_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:00:27 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/26 10:34:04 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:15:02 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,18 @@ t_tile	**map_init(int argc, char **argv, t_game *game)
 		return (NULL);
 	}
 	tilemap = generate_tilemap(map, game);
+	if (tilemap == NULL)
+		end_program(game);
 	game->backup = ft_continue(game->backup, map);
+	if (game->backup == NULL)
+		end_program(game);
 	ft_free_chartable(map);
 	if (tilemap == NULL)
 		return (NULL);
 	return (tilemap);
 }
 
+#include <stdio.h>
 //inizia l'mlx, apre una finestra, e apre un immagine
 void	game_init(t_game *game)
 {

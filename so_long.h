@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:21:11 by sgalli            #+#    #+#             */
-/*   Updated: 2023/02/01 14:55:12 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:14:54 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,23 +202,25 @@ typedef struct s_player
 */
 typedef struct s_game
 {
+	t_tile				**tilemap;
 	void				*mlx;
 	void				*window;
-	t_vector			wndw_size;
-	t_tile				**tilemap;
-	t_player			player;
-	int					og_collects;
-	int					collects;
-	int					moves;
 	t_enemy				*enemy_list;
+	void				*door_open_img;
+	void				*door_close_img;
+	t_tile				**backup;
+	t_vector			wndw_size;
+	t_player			player;
+	t_effect			effect;
 	t_vector			img_size;
 	t_wall_img			wall_imgs;
 	t_collect_img		collects_imgs;
 	t_enemy_img			enemy_imgs;
-	void				*door_open_img;
-	void				*door_close_img;
-	t_effect			effect;
-	t_tile				**backup;
+	int					death;
+	int					moves;
+	int					win;
+	int					collects;
+	int					og_collects;
 }	t_game;
 
 //FUNCTIONI

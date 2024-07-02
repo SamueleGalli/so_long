@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:33:49 by sgalli            #+#    #+#             */
-/*   Updated: 2023/02/01 13:57:56 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:14:58 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ t_bool	move_to(t_game *game, t_tile *tile)
 int	input(int key, t_game *game)
 {
 	t_bool	moved;
-
 	if (key == ESC)
 		end_program(game);
 	else if (key == RESET)

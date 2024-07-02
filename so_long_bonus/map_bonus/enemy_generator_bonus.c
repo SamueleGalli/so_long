@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_generator.c                                  :+:      :+:    :+:   */
+/*   enemy_generator_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:54:57 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/19 11:05:46 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:02:45 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	add_enemy(t_game *game, t_enemytype type, t_tile *tile)
 	t_enemy	*new;
 
 	new = new_enemy(type, tile);
-	if (new == NULL)
-		return ;
+        if (new == NULL)
+                end_program(game);
 	if (game->enemy_list == NULL)
 	{
 		game->enemy_list = new;

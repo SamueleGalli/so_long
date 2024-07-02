@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_winable.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:26:51 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/30 15:54:37 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:51:55 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	radar(int x, int y, t_tile **g)
 	if (g[y][x - 1].type == EMPTY || g[y][x - 1].type == EXIT \
 	|| g[y][x - 1].type == COLLECTABLE || g[y][x - 1].type == ENEMY \
 	|| g[y][x - 1].type == FOLLOWER)
-	{		
+	{
 		g[y][x - 1].type = WALL;
 		mover(x - 1, y, g);
 	}

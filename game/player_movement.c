@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:19 by sgalli            #+#    #+#             */
-/*   Updated: 2023/02/02 11:21:40 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:42:37 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ void	move_to_exit(t_game *game, t_tile *tile)
 {
 	effect_anim(&game->effect, tile->position);
 	remove_player(game);
-	game->collects -= 1;
+	game->collects = 0;
+	game->win = 1;
 }
 
 void	move_to_enemy(t_game *game, t_tile *tile)
 {
 	remove_player(game);
 	effect_anim(&game->effect, tile->position);
-	kill_player(game, tile->position);
+	game->death = 1;
 }

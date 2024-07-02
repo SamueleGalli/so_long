@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:00:27 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/26 10:34:04 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:03:30 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ t_tile	**map_init(int argc, char **argv, t_game *game)
 		return (NULL);
 	}
 	tilemap = generate_tilemap(map, game);
+	if (tilemap == NULL)
+		end_program(game);
 	game->backup = ft_continue(game->backup, map);
+	if (game->backup == NULL)
+		end_program(game);
 	ft_free_chartable(map);
 	if (tilemap == NULL)
 		return (NULL);
@@ -73,6 +77,8 @@ static void	anim_setup(t_game *game)
 //avvia il gioco
 t_bool	start(t_game *game, int argc, char **argv)
 {
+	game->death = 0;
+	game->win = 0;
 	game->collects = 0;
 	game->moves = 0;
 	game->enemy_list = NULL;

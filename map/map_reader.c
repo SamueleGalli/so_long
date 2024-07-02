@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgalli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: sgalli <sgalli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 10:59:38 by sgalli            #+#    #+#             */
-/*   Updated: 2023/01/19 11:03:54 by sgalli           ###   ########.fr       */
+/*   Updated: 2024/07/02 14:04:27 by sgalli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ char	**read_map(char *file)
 	int		i;
 
 	map = alloc_columns(file);
+	if (map == NULL)
+		return (NULL);
 	fd = open(file, O_RDONLY);
 	i = 0;
 	while (get_next_line(fd, &map[i]) != '\0')
